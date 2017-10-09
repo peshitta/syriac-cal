@@ -25,7 +25,7 @@ Following bundles are available:
 libraries and applications
 
 The package could also be downloaded directly from:
-[https://registry.npmjs.org/syriac-cal/-/syriac-cal-1.0.0.tgz](https://registry.npmjs.org/syriac-cal/-/syriac-cal-1.0.0.tgz)
+[https://registry.npmjs.org/syriac-cal/-/syriac-cal-1.0.1.tgz](https://registry.npmjs.org/syriac-cal/-/syriac-cal-1.0.1.tgz)
 
 ## More information
 
@@ -34,6 +34,9 @@ The package could also be downloaded directly from:
 [Beth Mardutho](https://sedra.bethmardutho.org/about/fonts)
 
 [CAL](http://cal1.cn.huc.edu/searching/fullbrowser.html)
+
+For CAL to Syriac conversion see:
+[cal-syriac](https://github.com/peshitta/cal-syriac)
 
 ## License
 
@@ -60,22 +63,22 @@ npm run build
 
 ## API Reference
 
-* [syriac](#module_syriac)
-    * [.mapper](#module_syriac.mapper) : <code>Mapper</code>
-    * [.toCal](#module_syriac.toCal) ⇒ <code>string</code>
+* [syriacCal](#module_syriacCal)
+    * [.mapper](#module_syriacCal.mapper) : <code>Mapper</code>
+    * [.toCal](#module_syriacCal.toCal) ⇒ <code>string</code>
 
-<a name="module_syriac.mapper"></a>
+<a name="module_syriacCal.mapper"></a>
 
-### syriac.mapper : <code>Mapper</code>
+### syriacCal.mapper : <code>Mapper</code>
 Aramaic Mapper
 
-**Kind**: static constant of [<code>syriac</code>](#module_syriac)  
-<a name="module_syriac.toCal"></a>
+**Kind**: static constant of [<code>syriacCal</code>](#module_syriacCal)  
+<a name="module_syriacCal.toCal"></a>
 
-### syriac.toCal ⇒ <code>string</code>
+### syriacCal.toCal ⇒ <code>string</code>
 Convert from Syriac Unicode to CAL
 
-**Kind**: static constant of [<code>syriac</code>](#module_syriac)  
+**Kind**: static constant of [<code>syriacCal</code>](#module_syriacCal)  
 **Returns**: <code>string</code> - the input word converted to CAL  
 
 | Param | Type | Description |

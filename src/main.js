@@ -1,4 +1,4 @@
-/** @module syriac */
+/** @module syriacCal */
 import { Writing, Mapper } from 'aramaic-mapper';
 import {
   allConsonants as syriacAllConsonants,

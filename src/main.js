@@ -66,7 +66,16 @@ const calWriting = new Writing(
       .slice(0, 4)
       .concat(easternVowels) // matching syriac eastern
       .concat(commonVowels) // matching syriac western above
-      .concat(commonVowels) // matching syriac western above
+      .concat(commonVowels) // matching syriac western below
+      .concat([
+        'a', //  َ Arabic fatha - Garshuni: a
+        'i', //  ِ Arabic kasra - Garshuni: i
+        'u', //  ُ Arabic damma - Garshuni: u
+        'a', //  ً Arabic fathatan - Garshuni: an
+        'i', //  ٍ Arabic kasratan - Garshuni: in
+        'u', //  ٌ Arabic dammatan - Garshuni: un
+        'o' //  ٰ Arabic letter superscript alef - Garshuni: long a
+      ])
   ),
   Object.freeze(
     diacritics.concat([
@@ -89,16 +98,9 @@ const calWriting = new Writing(
       '', //  ݉ Syriac Music • a music mark • also used in the Syrian Orthodox Anaphora book to mark the breaking of the Eucharist bread
       '', //  ݊ Syriac Barrekh • a diacritic cross used in liturgical texts
       '', // ̭  Turoyo combining circumflex accent below
-      '', //  َ Arabic fatha - Garshuni
-      '', //  ً Arabic fathatan - Garshuni
-      '', //  ُ Arabic damma - Garshuni
-      '', //  ٌ Arabic dammatan - Garshuni
       '', //  ٓ Arabic maddah above - Garshuni
       '', //  ٔ Arabic hamza above - Garshuni
-      '', //  ِ Arabic kasra - Garshuni
-      '', //  ٍ Arabic kasratan - Garshuni
       '', //  َ Arabic hamza below - Garshuni
-      '', //  ٰ Arabic letter superscript alef - Garshuni
       '' //  ّ Arabic shadda - Garshuni
     ])
   )

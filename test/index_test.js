@@ -32,6 +32,29 @@ describe('Syriac', () => {
       test.strictEqual(word, wordExpected, 'sut.toCal_yi consonant');
       test.strictEqual(vocalised, vocalisedEastern, 'sut.toCal_yi eastern');
     });
+    it('i vowel not followed by y', () => {
+      let word = sut.toCal('ܕܩܣܪܝܐ-ܕܦܝܠܝܦܘܣ');
+      let wordExpected = 'dqsry)-dpylypws';
+      let vocalised = sut.toCal('ܕ݁ܩܹܣܲܪܼܝܲܐ-ܕ݂ܦ݂ܝܼܠܝܼܦ݁ܘܿܣ');
+      let vocalisedExpected = "d'qesariya)-d,p,yilyip'wOs";
+      test.strictEqual(word, wordExpected, 'sut.toCal_generic consonant');
+      test.strictEqual(
+        vocalised,
+        vocalisedExpected,
+        'sut.toCal_generic vocalised'
+      );
+
+      word = sut.toCal('ܕܩܣܪܝܐ-ܕܦܝܠܝܦܘܣ');
+      wordExpected = 'dqsry)-dpylypws';
+      vocalised = sut.toCal('ܕ݁ܩܶܣܰܪܺܝܰܐ-ܕ݂ܦ݂ܺܝܠܺܝܦ݁ܳܘܣ');
+      vocalisedExpected = "d'qesariya)-d,p,yilyip'wOs";
+      test.strictEqual(word, wordExpected, 'sut.toCal_generic consonant');
+      test.strictEqual(
+        vocalised,
+        vocalisedExpected,
+        'sut.toCal_generic vocalised'
+      );
+    });
     it('Word with (ye) => (e;) mapping', () => {
       const word = sut.toCal('ܒܝܬ');
       const vocalised = sut.toCal('ܒ݁ܶܝܬ݂');

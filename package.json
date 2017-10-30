@@ -1,6 +1,6 @@
 {
   "name": "syriac-cal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert from Syriac Unicode to CAL code",
   "main": "build/syriac-cal.js",
   "mainMin": "build/syriac-cal.min.js",

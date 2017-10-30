@@ -32,6 +32,37 @@ describe('Syriac', () => {
       test.strictEqual(word, wordExpected, 'sut.toCal_yi consonant');
       test.strictEqual(vocalised, vocalisedEastern, 'sut.toCal_yi eastern');
     });
+    it('Word with (ye) => (e;) mapping', () => {
+      const word = sut.toCal('ܒܝܬ');
+      const vocalised = sut.toCal('ܒ݁ܶܝܬ݂');
+      const wordExpected = 'byt';
+      const vocalisedExpected = "b'yet,";
+      test.strictEqual(word, wordExpected, 'toCal_ye consonant');
+      test.strictEqual(vocalised, vocalisedExpected, 'toCal_ye vocalised');
+    });
+    it('With un-mapped char', () => {
+      const word = sut.toCal('ܒܝܬ+');
+      const vocalised = sut.toCal('ܒ݁ܶܝܬ݂+');
+      const wordExpected = 'byt+';
+      const vocalisedExpected = "b'yet,+";
+      test.strictEqual(word, wordExpected, 'toCal_ye consonant');
+      test.strictEqual(vocalised, vocalisedExpected, 'toCal_ye vocalised');
+    });
+    it('Word with (wO) => (oO) mapping', () => {
+      let word = sut.toCal('ܐܒܗܘܗܝ');
+      let vocalised = sut.toCal('ܐܰܒ݂ܳܗܰܘܗ݇ܝ');
+      let wordExpected = ')bhwhy';
+      let vocalisedExpected = ')ab,ohawh_y';
+      test.strictEqual(word, wordExpected, 'sut.toCal_wO consonant');
+      test.strictEqual(vocalised, vocalisedExpected, 'sut.toCal_wO vocalised');
+
+      word = sut.toCal('ܘܬܫܒܘܚܬܐ');
+      wordExpected = 'wt$bwxt)';
+      vocalised = sut.toCal('ܘܬ݂ܶܫܒ݁ܳܘܚܬ݁ܳܐ');
+      vocalisedExpected = "wt,e$b'wOxt'o)";
+      test.strictEqual(word, wordExpected, 'sut.toCal_wu consonant');
+      test.strictEqual(vocalised, vocalisedExpected, 'sut.toCal_wu vocalised');
+    });
     it('Word with short Eastern (E) => (e) mapping', () => {
       const word = sut.toCal('ܐܘܠܕ');
       const wordExpected = ')wld';

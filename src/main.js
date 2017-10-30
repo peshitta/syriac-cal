@@ -4,7 +4,10 @@ import {
   allConsonants as syriacAllConsonants,
   allVowels as syriacAllVowels,
   allDiacritics as syriacAllDiacritics,
-  isConsonant as isSyriacConsonant
+  isConsonant as isSyriacConsonant,
+  consonantsByName as syriacConsonantsByName,
+  easternVowelsByName,
+  westernVowelsByName
 } from 'syriac-code-util';
 import {
   consonants,
@@ -106,8 +109,12 @@ const calWriting = new Writing(
   )
 );
 
-const wow = '\u0718';
-const yod = '\u071D';
+const { waw, yod } = syriacConsonantsByName;
+const { hbasaEsasa } = easternVowelsByName;
+const westernHbasa = westernVowelsByName.hbasa;
+const westernRbasa = westernVowelsByName.rbasa;
+const westernEsasa = westernVowelsByName.esasa;
+const westernZqapha = westernVowelsByName.zqapha;
 
 /**
  * @private
@@ -121,30 +128,37 @@ const mapCallback = (word, i, toFrom) => {
   const to = () => toFrom[c] || (toFrom[c] === '' ? '' : c);
   let m;
   switch (c) {
-    case '\u073A': // Hbasa Above/Below
+    case westernHbasa: // Hbasa Above/Below
     case '\u073B':
       m =
         word.charAt(i + 1) === yod && isSyriacConsonant(word.charAt(i + 2))
           ? 'yi' // Western stores as (iy)
           : to();
       break;
-    case '\u073D': // Esasa Above/Below
+    case westernRbasa: // Rbasa Above/below
+    case '\u0737':
+      m =
+        word.charAt(i + 1) === yod && isSyriacConsonant(word.charAt(i + 2))
+          ? 'ye' // Sedra stores as (ey)
+          : to();
+      break;
+    case westernEsasa: // Esasa Above/Below
     case '\u073E':
       m =
-        word.charAt(i + 1) === wow && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === waw && isSyriacConsonant(word.charAt(i + 2))
           ? 'wu' // Western stores as (uw)
           : to();
       break;
-    case '\u0733':
+    case westernZqapha: // Zqapha Above/Below
     case '\u0734':
       m =
-        word.charAt(i + 1) === wow && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === waw && isSyriacConsonant(word.charAt(i + 2))
           ? 'wO' // Eastern O stored as (ow) in Western
           : to();
       break;
-    case '\u073C': // Eastern below dot
+    case hbasaEsasa: // Eastern below dot
       m =
-        word.charAt(i - 1) === wow
+        word.charAt(i - 1) === waw
           ? 'u' // / w followed by below dot => u
           : to();
       break;

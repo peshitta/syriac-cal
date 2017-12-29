@@ -131,28 +131,28 @@ const mapCallback = (word, i, toFrom) => {
     case westernHbasa: // Hbasa Above/Below
     case '\u073B':
       m =
-        word.charAt(i + 1) === yod && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === yod && (!word.charAt(i + 2) || isSyriacConsonant(word.charAt(i + 2)))
           ? 'yi' // Western stores as (iy)
           : to();
       break;
     case westernRbasa: // Rbasa Above/below
     case '\u0737':
       m =
-        word.charAt(i + 1) === yod && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === yod && (!word.charAt(i + 2) || isSyriacConsonant(word.charAt(i + 2)))
           ? 'ye' // Sedra stores as (ey)
           : to();
       break;
     case westernEsasa: // Esasa Above/Below
     case '\u073E':
       m =
-        word.charAt(i + 1) === waw && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === waw && (!word.charAt(i + 2) || isSyriacConsonant(word.charAt(i + 2)))
           ? 'wu' // Western stores as (uw)
           : to();
       break;
     case westernZqapha: // Zqapha Above/Below
     case '\u0734':
       m =
-        word.charAt(i + 1) === waw && isSyriacConsonant(word.charAt(i + 2))
+        word.charAt(i + 1) === waw && (!word.charAt(i + 2) || isSyriacConsonant(word.charAt(i + 2)))
           ? 'wO' // Eastern O stored as (ow) in Western
           : to();
       break;
